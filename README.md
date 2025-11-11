@@ -116,7 +116,7 @@ GET	/api/vehicles/premium-dealers	Get vehicles of PREMIUM dealers only
 ```
 ### Payment APIs
 ```
-POST	/api/payment/initiate?dealerId=1&amount=499.0&method=UPI	Initiate payment (status = PENDING)
+POST	/api/payment/	Initiate payment (status = PENDING)
 GET	/api/payment	Get all payment records
 ```
 ---
