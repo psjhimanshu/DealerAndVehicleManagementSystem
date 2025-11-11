@@ -56,3 +56,79 @@ spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
 
 ```
 ---
+
+### Make sure to create the database first:
+CREATE DATABASE dealership_db;
+
+
+###  Projectr Structure
+```properties
+src/
+ └── main/
+     ├── java/com/example/dealership/
+     │   ├── controller/
+     │   │   ├── DealerController.java
+     │   │   ├── VehicleController.java
+     │   │   └── PaymentController.java
+     │   ├── entity/
+     │   │   ├── Dealer.java
+     │   │   ├── Vehicle.java
+     │   │   └── Payment.java
+     │   ├── enums/
+     │   │   ├── SubscriptionType.java
+     │   │   └── VehicleStatus.java
+     │   ├── repository/
+     │   │   ├── DealerRepository.java
+     │   │   ├── VehicleRepository.java
+     │   │   └── PaymentRepository.java
+     │   ├── service/
+     │   │   ├── DealerService.java
+     │   │   ├── VehicleService.java
+     │   │   └── PaymentService.java
+     │   ├── exception/
+     │   │   ├── ResourceNotFoundException.java
+     │   │   └── GlobalExceptionHandler.java
+     │   └── DealerManagementApplication.java
+     └── resources/
+         ├── application.properties
+         └── data.sql (optional)
+
+
+```
+--- 
+## API Endpoints
+### Dealer APIs
+```
+POST	/api/dealers	Create a new dealer
+GET	/api/dealers	Get all dealers
+GET	/api/dealers/{id}	Get dealer by ID
+PUT	/api/dealers/{id}	Update a dealer
+DELETE	/api/dealers/{id}	Delete a dealer
+```
+### Vehicle APIs
+```
+POST	/api/vehicles	Add new vehicle
+GET	/api/vehicles	Get all vehicles
+GET	/api/vehicles/{id}	Get vehicle by ID
+PUT	/api/vehicles/{id}	Update vehicle
+DELETE	/api/vehicles/{id}	Delete vehicle
+GET	/api/vehicles/premium-dealers	Get vehicles of PREMIUM dealers only
+```
+### Payment APIs
+```
+POST	/api/payment/initiate?dealerId=1&amount=499.0&method=UPI	Initiate payment (status = PENDING)
+GET	/api/payment	Get all payment records
+```
+---
+## Conclusion
+This project demonstrates how to build a real-world Spring Boot REST API with:
+
+Entity relationships
+
+Custom JPA queries
+
+Async process simulation
+
+Centralized exception handling
+
+MySQL integration
